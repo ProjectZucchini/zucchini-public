@@ -1,0 +1,71 @@
+mutation HookCreateAsset($data: CreateAssetInput!) {
+  createAsset(data: $data) {
+    asset {
+      id
+      ...DiagramAsset
+    }
+  }
+}
+
+mutation HookCreateConnection($data: CreateConnectionInput!) {
+  createConnection(data: $data) {
+    connection {
+      id
+      ...DiagramConnection
+    }
+  }
+}
+
+mutation HookUpdateAssetPosition($data: UpdateAssetPositionInput!) {
+  updateAssetPosition(data: $data) {
+    asset {
+      id
+      position {
+        id
+        x
+        y
+      }
+    }
+  }
+}
+
+mutation HookAttachAssetParent($data: AttachAssetParentInput!) {
+  attachAssetParent(data: $data) {
+    asset {
+      id
+      data {
+        id
+        isChild
+      }
+      parent {
+        id
+      }
+      position {
+        x
+        y
+      }
+    }
+  }
+}
+
+mutation HookUpdateOrganization($data: UpdateOrganizationInput!) {
+  updateOrganization(data: $data) {
+    organization {
+      id
+      awsTrustPolicyAttached
+    }
+  }
+}
+
+mutation HookUpdateAssetSize($data: UpdateAssetSizeInput!) {
+  updateAssetSize(data: $data) {
+    asset {
+      id
+      style {
+        id
+        height
+        width
+      }
+    }
+  }
+}

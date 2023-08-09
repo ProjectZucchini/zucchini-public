@@ -1,0 +1,16 @@
+input UpdateAssetSizeInput {
+  id: ID!
+  height: Int!
+  width: Int!
+}
+
+type UpdateAssetSizeResponse implements MutationResponse {
+  code: String!
+  success: Boolean!
+  message: String
+  asset: Asset
+}
+
+extend type Mutation {
+  updateAssetSize(data: UpdateAssetSizeInput!): UpdateAssetSizeResponse
+}

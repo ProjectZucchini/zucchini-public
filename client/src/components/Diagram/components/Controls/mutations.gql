@@ -1,0 +1,5 @@
+mutation ControlsDeleteAssets($assetIds: [ID!]!) {
+  deleteAssets(assetIds: $assetIds) {
+    success
+  }
+}

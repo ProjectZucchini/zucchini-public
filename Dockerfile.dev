@@ -1,0 +1,10 @@
+FROM node:18
+
+WORKDIR /code
+
+COPY api/package.json ./api/
+COPY client/package.json ./client/
+COPY package.json ./
+COPY package-lock.json ./
+
+RUN npm install

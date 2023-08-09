@@ -1,0 +1,59 @@
+model Asset {
+  id        Int      @id @default(autoincrement())
+  type      Int
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  assetDiagramId    Int               @unique
+  assetDiagram      AssetDiagram      @relation(fields: [assetDiagramId], references: [id])
+  parentAssetId     Int?
+  parent            Asset?            @relation("AssetChildren", fields: [parentAssetId], references: [id])
+  children          Asset[]           @relation("AssetChildren")
+  connectionSources AssetConnection[] @relation("ConnectionSources")
+  connectionTargets AssetConnection[] @relation("ConnectionsTargets")
+  organizationId    Int
+  organization      Organization      @relation(fields: [organizationId], references: [id])
+}
+
+model AssetDiagram {
+  id        Int      @id @default(autoincrement())
+  xPoint    Int
+  yPoint    Int
+  height    Int
+  width     Int
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  asset Asset?
+}
+
+model AssetConnection {
+  id        Int      @id @default(autoincrement())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  sourceId Int
+  source   Asset @relation("ConnectionSources", fields: [sourceId], references: [id], onDelete: Cascade)
+  targetId Int
+  target   Asset @relation("ConnectionsTargets", fields: [targetId], references: [id], onDelete: Cascade)
+}
+
+model Organization {
+  id        Int      @id @default(autoincrement())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  name                   String
+  awsTrustPolicyAttached Boolean @default(false)
+
+  assets Asset[]
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}

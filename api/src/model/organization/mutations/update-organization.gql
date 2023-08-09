@@ -1,0 +1,14 @@
+input UpdateOrganizationInput {
+  awsTrustPolicyAttached: Boolean!
+}
+
+type UpdateOrganizationResponse implements MutationResponse {
+  code: String!
+  success: Boolean!
+  message: String
+  organization: Organization
+}
+
+extend type Mutation {
+  updateOrganization(data: UpdateOrganizationInput!): UpdateOrganizationResponse
+}

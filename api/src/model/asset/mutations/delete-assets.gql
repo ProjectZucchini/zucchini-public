@@ -1,0 +1,9 @@
+type DeleteAssetsResponse implements MutationResponse {
+  code: String!
+  success: Boolean!
+  message: String
+}
+
+extend type Mutation {
+  deleteAssets(assetIds: [ID!]!): DeleteAssetsResponse
+}

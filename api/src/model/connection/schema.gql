@@ -1,0 +1,4 @@
+type AssetConnection {
+  id: ID!
+  target: Asset!
+}

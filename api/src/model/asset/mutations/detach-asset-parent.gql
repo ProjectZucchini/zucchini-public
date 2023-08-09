@@ -1,0 +1,16 @@
+input DetachAssetParentInput {
+  id: ID!
+  x: Int!
+  y: Int!
+}
+
+type DetachAssetParentResponse implements MutationResponse {
+  code: String!
+  success: Boolean!
+  message: String
+  asset: Asset
+}
+
+extend type Mutation {
+  detachAssetParent(data: DetachAssetParentInput!): DetachAssetParentResponse
+}

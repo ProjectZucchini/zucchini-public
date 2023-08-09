@@ -1,0 +1,24 @@
+mutation ToolbarDeleteAssets($assetIds: [ID!]!) {
+  deleteAssets(assetIds: $assetIds) {
+    success
+  }
+}
+
+mutation ToolbarDetachAssetParent($data: DetachAssetParentInput!) {
+  detachAssetParent(data: $data) {
+    asset {
+      id
+      data {
+        id
+        isChild
+      }
+      parent {
+        id
+      }
+      position {
+        x
+        y
+      }
+    }
+  }
+}

@@ -1,0 +1,16 @@
+input UpdateAssetPositionInput {
+  id: ID!
+  x: Int!
+  y: Int!
+}
+
+type UpdateAssetPositionResponse implements MutationResponse {
+  code: String!
+  success: Boolean!
+  message: String
+  asset: Asset
+}
+
+extend type Mutation {
+  updateAssetPosition(data: UpdateAssetPositionInput!): UpdateAssetPositionResponse
+}

@@ -1,0 +1,4 @@
+fragment AwsConfigureOrganization on Organization {
+  id
+  awsTrustPolicyAttached
+}

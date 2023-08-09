@@ -1,0 +1,17 @@
+input AttachAssetParentInput {
+  id: ID!
+  parentId: Int!
+  x: Int!
+  y: Int!
+}
+
+type AttachAssetParentResponse implements MutationResponse {
+  code: String!
+  success: Boolean!
+  message: String
+  asset: Asset
+}
+
+extend type Mutation {
+  attachAssetParent(data: AttachAssetParentInput!): AttachAssetParentResponse
+}

@@ -1,0 +1,51 @@
+{
+  "name": "@zucchini/api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/index.js",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "start:watch": "npx prisma generate && tsc-watch --noClear --onSuccess 'node --inspect=0.0.0.0 dist/index.js'",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ProjectZucchini/zucchini.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ProjectZucchini/zucchini/issues"
+  },
+  "homepage": "https://github.com/ProjectZucchini/zucchini#readme",
+  "dependencies": {
+    "@apollo/server": "^4.5.0",
+    "@as-integrations/koa": "^0.3.0",
+    "@graphql-tools/schema": "^9.0.17",
+    "@koa/cors": "^4.0.0",
+    "@koa/router": "^12.0.0",
+    "@prisma/client": "^4.11.0",
+    "dotenv": "^16.0.3",
+    "graphql": "^16.6.0",
+    "jsonwebtoken": "^9.0.0",
+    "jwks-rsa": "^3.0.1",
+    "koa": "^2.14.1",
+    "koa-bodyparser": "^4.4.0"
+  },
+  "devDependencies": {
+    "@graphql-tools/utils": "^9.2.1",
+    "@types/koa": "^2.13.5",
+    "@types/koa__router": "^12.0.0",
+    "@types/node": "^18.15.3",
+    "prisma": "^4.11.0",
+    "ts-node": "^10.9.1",
+    "tsc-watch": "^6.0.0",
+    "typescript": "^4.9.5"
+  },
+  "prisma": {
+    "seed": "ts-node --esm prisma/seed.ts"
+  }
+}

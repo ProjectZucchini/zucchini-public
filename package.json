@@ -1,0 +1,46 @@
+{
+  "name": "zucchini",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "private": true,
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "codegen": "graphql-codegen --config codegen.ts",
+    "codegen:watch": "graphql-codegen --watch --config codegen.ts",
+    "start:api": "npm --workspace=@zucchini/api run start:watch",
+    "typecheck:client": "npm --workspace=@zucchini/client run typecheck:watch",
+    "start:client": "npm --workspace=@zucchini/client run start:watch",
+    "dev": "concurrently \"npm:codegen:watch\" \"npm:start:client\" \"npm:start:api\" \"npm:typecheck:client\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ProjectZucchini/zucchini.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ProjectZucchini/zucchini/issues"
+  },
+  "homepage": "https://github.com/ProjectZucchini/zucchini#readme",
+  "workspaces": [
+    "client",
+    "api"
+  ],
+  "devDependencies": {
+    "@graphql-codegen/cli": "^3.2.2",
+    "@graphql-codegen/typescript": "^3.0.2",
+    "@graphql-codegen/typescript-operations": "^3.0.2",
+    "@graphql-codegen/typescript-react-apollo": "^3.3.7",
+    "@graphql-codegen/typescript-resolvers": "^3.1.1",
+    "@graphql-tools/utils": "^9.2.1",
+    "@typescript-eslint/eslint-plugin": "^5.55.0",
+    "@typescript-eslint/parser": "^5.55.0",
+    "concurrently": "^7.6.0",
+    "eslint": "^8.36.0",
+    "eslint-config-prettier": "^8.7.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-react": "^7.32.2",
+    "typescript": "^4.9.5"
+  }
+}

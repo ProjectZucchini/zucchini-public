@@ -1,0 +1,15 @@
+input CreateConnectionInput {
+  sourceId: Int!
+  targetId: Int!
+}
+
+type CreateConnectionResponse implements MutationResponse {
+  code: String!
+  success: Boolean!
+  message: String
+  connection: AssetConnection
+}
+
+extend type Mutation {
+  createConnection(data: CreateConnectionInput!): CreateConnectionResponse
+}

@@ -1,0 +1,25 @@
+input SaveAssetInput {
+  id: ID!
+  type: AssetType!
+  position: SaveAssetPositionInput!
+}
+
+input SaveAssetPositionInput {
+  x: Int!
+  y: Int!
+}
+
+input SaveAssetsInput {
+  assets: [SaveAssetInput!]!
+}
+
+type SaveAssetsResponse implements MutationResponse {
+  code: String!
+  success: Boolean!
+  message: String
+  assets: [Asset!]!
+}
+
+extend type Mutation {
+  saveAssets(data: SaveAssetsInput!): SaveAssetsResponse
+}

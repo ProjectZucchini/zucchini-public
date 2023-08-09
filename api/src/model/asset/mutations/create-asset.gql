@@ -1,0 +1,20 @@
+input CreateAssetInput {
+  type: AssetType!
+  position: AssetPositionInput!
+}
+
+input AssetPositionInput {
+  x: Int!
+  y: Int!
+}
+
+type CreateAssetResponse implements MutationResponse {
+  code: String!
+  success: Boolean!
+  message: String
+  asset: Asset
+}
+
+extend type Mutation {
+  createAsset(data: CreateAssetInput!): CreateAssetResponse
+}

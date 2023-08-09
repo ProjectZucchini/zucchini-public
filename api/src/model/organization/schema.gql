@@ -1,0 +1,7 @@
+type Organization {
+  id: ID!
+  name: String!
+
+  assets: [Asset!]
+  awsTrustPolicyAttached: Boolean!
+}

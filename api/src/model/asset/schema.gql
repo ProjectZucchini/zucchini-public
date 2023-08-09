@@ -1,0 +1,34 @@
+type AssetData {
+  id: ID!
+  isContainer: Boolean!
+  isChild: Boolean!
+}
+
+type AssetPosition {
+  id: ID!
+  x: Int!
+  y: Int!
+}
+
+type AssetStyle {
+  id: ID!
+  height: Int!
+  width: Int!
+}
+
+type Asset {
+  id: ID!
+  type: AssetType!
+  data: AssetData!
+  position: AssetPosition!
+  style: AssetStyle!
+
+  connections: [AssetConnection!]!
+  parent: Asset
+}
+
+enum AssetType {
+  APPLICATION
+  AVAILABILITY_ZONE
+  DATABASE
+}

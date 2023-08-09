@@ -1,0 +1,38 @@
+fragment DiagramAsset on Asset {
+  id
+  type
+
+  connections {
+    id
+    ...DiagramConnection
+  }
+
+  data {
+    id
+    isChild
+    isContainer
+  }
+
+  parent {
+    id
+  }
+
+  position {
+    id
+    x
+    y
+  }
+
+  style {
+    id
+    height
+    width
+  }
+}
+
+fragment DiagramConnection on AssetConnection {
+  id
+  target {
+    id
+  }
+}

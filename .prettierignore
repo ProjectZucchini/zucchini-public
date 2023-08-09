@@ -1,0 +1,7 @@
+# Ignore artifacts:
+
+api/dist
+api/src/generated
+
+client/dist
+client/src/generated
